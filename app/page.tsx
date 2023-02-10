@@ -1,13 +1,21 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Exercise from "./Exercise";
 
-const inter = Inter({ subsets: ['latin'] })
+export default async function Home() {
+  const muscle = 'chest'
+  const options = {
+    method: 'GET',
+    headers: { 'x-api-key': `${process.env.API_KEY}` }
+  }
+  const data = await fetch(`https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`, options)
+  const res = await data.json();
+  console.log(res)
 
-export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <h1>hello next 13</h1>
+      {res.map(({ name, difficulty, type, muscle }, i) => (
+        <Exercise key={i} name={name} difficulty={difficulty} type={type} muscle={muscle} />
+      ))}
     </main>
   )
 }

@@ -1,6 +1,13 @@
 import Link from "next/link"
 
-export default function Exercise({ name, difficulty, type, muscle }) {
+type ExerciseProps = {
+    name: string
+    difficulty: string
+    type: string
+    muscle: string
+}
+
+export default function Exercise({ name, difficulty, type, muscle }: ExerciseProps) {
     return (
         <div className="mb-5">
             <h1>{name}</h1>

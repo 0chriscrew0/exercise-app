@@ -1,4 +1,10 @@
-export default async function ExerciseDetail({ params }) {
+type ExerciseDetailProps = {
+    params: {
+        exercise: string
+    }
+}
+
+export default async function ExerciseDetail({ params }: ExerciseDetailProps) {
     const { exercise } = params;
     const options = {
         method: 'GET',

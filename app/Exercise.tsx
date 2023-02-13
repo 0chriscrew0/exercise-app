@@ -7,7 +7,7 @@ export default function Exercise({ name, difficulty, type, muscle }) {
             <p>{difficulty}</p>
             <p>{type}</p>
             <p>{muscle}</p>
-            <Link href={'/about'}>View Details</Link>
+            <Link href={`/${name}`}>View Details</Link>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import Exercise from "./Exercise";
+import Exercise, { ExerciseProps } from "./Exercise";
 
 export default async function Home() {
   const muscle = 'chest'
@@ -13,7 +13,7 @@ export default async function Home() {
   return (
     <main>
       <div className="grid gap-16 grid-cols-fluid">
-      {res.map(({ name, difficulty, type, muscle }, i) => (
+      {res.map(({ name, difficulty, type, muscle }: ExerciseProps, i: number) => (
         <Exercise key={i} name={name} difficulty={difficulty} type={type} muscle={muscle} />
       ))}
       </div>
